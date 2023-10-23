@@ -5,35 +5,38 @@
  */
 package arithmetic;
 
-import java.util.Scanner;
 
-/** This class takes String input plus,minus,divide and times
- * from user and execute the arithmetic operation
- * change the code to use enum instead String and mention the advantage of enum.
- * @author sivagamasrinivasan
- * 
- */
+import java.util.Scanner;
+import static javax.management.Query.PLUS;
 public class ArithmeticBase 
 {
- public double x,y;
-    double calculate(double x, double y) 
-        {
-        Scanner sc =new Scanner(System.in);
-        System.out.println("Enter arithmetic operation to Perform: ");
-        String s= sc.next();
-        switch (s.toUpperCase()) 
-        {
-            case "PLUS":
-                return x + y;
-            case "MINUS":
-                return x - y;
-            case "TIMES":
-                return x * y;
-            case "DIVIDE":
-                return x / y;
-            default:
-                throw new AssertionError("Unknown operations " + this);
+
+    public double calculate(int x, int y, ArithmeticOperation operation) {
+        double result = 0.0;
+        switch (operation) {
+            case PLUS:
+                result = x + y;
+                break;
+            case MINUS:
+                result = x - y;
+                break;
+            case TIMES:
+                result = x * y;
+                break;
+            case DIVIDE:
+                if (y != 0) {
+                    result = (double) x / y;
+                } else {
+                    System.out.println("Division by zero is not allowed.");
+                }
+                break;
         }
+        return result;
     }
-   
 }
+
+
+
+    
+
+   
