@@ -4,10 +4,6 @@
  */
 package arithmetic;
 
-/**
- *
- * @author Jenisha
- */
 public class ArithmeticOperation {
 
      PLUS,
